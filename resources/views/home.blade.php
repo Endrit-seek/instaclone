@@ -7,7 +7,7 @@
             <img src="/img/php-profile.png" style="height: 110px; width:110px; " class="rounded-circle " alt="">
         </div>
         <div class="col-9 pt-5">
-            <div><h1>instagramclone</h1></div>
+            <div><h1>{{$user->username}}</h1></div>
             <div class="d-flex">
                 <div class="pe-5"><strong>100</strong> posts</div>
                 <div class="pe-5"><strong>1k</strong> followers</div>
