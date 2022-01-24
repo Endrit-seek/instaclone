@@ -31,12 +31,14 @@ class PostsController extends Controller
     {
         $data = request()->validate([
             'caption' => 'required',
-            'image' => ['required', 'image'],
+            'image' => ['required', 'image']
         ]);
 
         $imagePath = request('image')->store('uploads', 'public');
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image = Image::make(storage_path("storage/" . $imagePath))->fit(1200, 1200);
+
+//        $image=Image::make('storage/', $imagePath->getRealPath())->resize(320, 240)->save('storage/',$imagePath->getClientOriginalName());
         $image->save();
 
         auth()->user()->posts()->create([
