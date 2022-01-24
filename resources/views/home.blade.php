@@ -13,9 +13,9 @@
                 <div class="pe-5"><strong>1k</strong> followers</div>
                 <div class="pe-5"><strong>222</strong> following</div>
             </div>
-            <div class="pt-4 fw-bold">instaclone.com</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut dolor a mi feugiat placerat. Donec ornare suscipit lorem, a euismod odio fermentum quis. </div>
-            <div><a href="#">www.animusevolution.com</a></div>
+            <div class="pt-4 fw-bold">{{ $user->profile->title }}</div>
+            <div>{{ $user->profile->description }}</div>
+            <div><a href="#">{{ $user->profile->url }}</a></div>
         </div>
     </div>
     <div class="row pt-5">
