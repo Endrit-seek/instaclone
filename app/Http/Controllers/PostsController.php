@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+
+        return view('posts.index', compact('posts'));
     }
 
     public function create(){
@@ -21,9 +32,14 @@ class PostsController extends Controller
            'image' => ['required', 'image']
         ]);
 
-        auth()->user()->posts()->create($data);
+        $imagePath = request('image')->store('uploads', 'public');
 
-        dd(request()->all());
+        auth()->user()->posts()->create([
+            'caption' => $data['caption'],
+            'image' => $imagePath,
+        ]);
+
+        return redirect('/profile/' . auth()->user()->id);
     }
     //
 }
