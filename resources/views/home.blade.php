@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-3 p-5">
-            <img src="/img/php-profile.png" style="height: 110px; width:110px;" class="rounded-circle" alt="">
+        <div class="col-3 p-5" style="display:flex; align-items: center; justify-content: right">
+            <img src="/img/php-profile.png" style="height: 110px; width:110px; " class="rounded-circle " alt="">
         </div>
         <div class="col-9 pt-5">
             <div><h1>instagramclone</h1></div>
