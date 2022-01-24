@@ -1,2 +1,2 @@
 # instaclone
- Instagram Clone using Laravel, PHP, Node.JS, Vue.JS, MySQL
+ Instagram Clone using Laravel, PHP, Node.JS, Vue.JS, SQLite
